@@ -1,6 +1,9 @@
 # 🌟 Lopsify — Habit Tracker Gamificado
 
-O **Lopsify** é um projeto web simples criado para ajudar no controle de hábitos de forma leve e motivadora, usando elementos de gamificação. A proposta é transformar pequenas tarefas em algo mais divertido e recompensador.
+O **Lopsify** é um projeto web focado em tornar o controle de hábitos mais leve, divertido e motivador por meio de elementos de gamificação.  
+Ele está sendo desenvolvido para aplicar conceitos sobre engajamento, recompensas e progressão, que foram estudados na disciplina de *Introdução à Gamificação* (2025.2).  
+
+A ideia é transformar pequenas tarefas do dia a dia em desafios recompensadores, incentivando a consistência sem perder a simplicidade.
 
 ##  Objetivo do Projeto
 Criar uma aplicação minimalista onde o usuário possa:
