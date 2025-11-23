@@ -3,25 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo Frontend</title>
+    <title>Controle de Hábitos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
+    <!-- TOPO -->
+    <header class="topo">
         <h1>Controle de Hábitos</h1>
 
-        <form id="form">
-            <input type="text" id="nome" placeholder="Digite um nome" required>
-            <button type="submit">Adicionar novo hábito</button>
-        </form>
+        <div class="xp-box">
+            <img src="https://cdn-icons-png.flaticon.com/128/8754/8754417.png" alt="XP">
+            <span id="xpTotal">Nível 0</span>
+        </div>
+    </header>
 
-        <h2>Itens cadastrados:</h2>
-        <ul id="lista"></ul>
+    <!-- LISTA DE HÁBITOS -->
+    <main id="habitosContainer"></main>
+
+    <!-- BOTÃO ADICIONAR -->
+    <div class="add-container">
+        <button id="btnAdd">+ Adicionar novo hábito</button>
     </div>
 
-    <!-- AQUI: script externo -->
-    <script src="script.js"></script>
+<!-- MODAL BONITO -->
+<div id="modalAdicionar" class="modal hidden">
+    <div class="modal-conteudo">
+        <h2>Novo Hábito</h2>
 
+        <label>Nome do hábito:</label>
+        <input type="text" id="inputNomeHabito">
+
+        <label>Categoria (opcional):</label>
+        <input type="text" id="inputCategoriaHabito">
+
+        <div class="modal-botoes">
+            <button id="btnFecharModal">Cancelar</button>
+            <button id="btnSalvar">Salvar</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DE CONFIRMAÇÃO DE EXCLUSÃO -->
+<div id="modalConfirmar" class="modal">
+    <div class="modal-conteudo">
+        <h2 style="margin-bottom: 10px; color: #222;">Excluir hábito?</h2>
+        <p style="margin-bottom: 20px; font-size: 14px;">
+            Tem certeza de que deseja excluir este hábito?
+        </p>
+
+        <div class="botoes-confirmacao">
+            <button id="btnCancelarExcluir" class="btn-cancelar">Cancelar</button>
+            <button id="btnConfirmarExcluir" class="btn-excluir2">Excluir</button>
+        </div>
+    </div>
+</div>
+
+
+    <!-- MENU INFERIOR -->
+<footer class="menu">
+    <button id="btnHome" class="menu-btn">
+        <img src="https://cdn-icons-png.flaticon.com/128/6997/6997164.png" alt="Home">
+    </button>
+
+    <button id="btnConcluidos" class="menu-btn">
+        <img src="https://cdn-icons-png.flaticon.com/128/6831/6831818.png" alt="Concluídos">
+    </button>
+</footer>
+
+
+    <script src="script.js"></script>
 </body>
 </html>
