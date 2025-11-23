@@ -1,57 +1,293 @@
-body {
+/* =========================================
+   RESET
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
-    background: #f7f7f7;
+}
+
+body {
+    background: linear-gradient(180deg, #8bcf74, #f7e893);
+    min-height: 100vh;
+    padding-bottom: 120px;
+}
+
+/* =========================================
+   TOPO
+========================================= */
+header.topo {
     display: flex;
-    justify-content: center;
-    padding: 40px;
-}
-
-.container {
-    width: 400px;
-    background: white;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-h1, h2 {
+header h1 {
+    font-size: 24px;
+}
+
+.xp-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.xp-box img {
+    width: 28px;
+    height: 28px;
+}
+
+/* =========================================
+   LISTA DE CARDS
+========================================= */
+#habitosContainer,
+#concluidosContainer {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* =========================================
+   CARD DE HÁBITO (ESTILO NOVO)
+========================================= */
+.card-habito {
+    background: #4d7f3a;
+    color: white;
+    padding: 18px 22px;
+    border-radius: 12px;
+    box-shadow: 3px 4px 10px rgba(0,0,0,0.25);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-habito p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* =========================================
+   BOTÕES DO CARD
+========================================= */
+.acoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.acoes button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+/* Concluir */
+.btn-concluir {
+    background: #6EE7B7;
+    color: #065F46;
+}
+.btn-concluir:hover {
+    background: #34D399;
+}
+
+/* Excluir */
+.btn-excluir {
+    background: #FCA5A5;
+    color: #7F1D1D;
+}
+.btn-excluir:hover {
+    background: #F87171;
+}
+
+/* =========================================
+   BOTÃO ADICIONAR
+========================================= */
+.add-container {
+    padding: 20px;
     text-align: center;
 }
 
-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-}
-
-button {
-    background: #4CAF50;
-    border: none;
-    padding: 10px 15px;
+#btnAdd {
+    background: #43aa41;
     color: white;
-    border-radius: 5px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
     cursor: pointer;
 }
 
-button:hover {
-    background: #45a049;
+/* =========================================
+   MENU INFERIOR NOVO
+========================================= */
+footer.menu {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #6fbf60;
+    padding: 15px 25px;
+    border-radius: 25px;
+    display: flex;
+    gap: 35px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+.menu-btn {
+    background: rgba(0,0,0,0.12);
+    padding: 12px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-li {
-    background: #eee;
-    margin-bottom: 8px;
+.menu-btn img {
+    width: 28px;
+    height: 28px;
+}
+
+.menu-btn.active {
+    background: rgba(0,0,0,0.3);
+    transform: scale(1.1);
+}
+
+/* =========================================
+   MODAL BONITO
+========================================= */
+
+/* Fundo escuro */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Mostrar modal */
+.modal.ativo {
+    display: flex;
+}
+
+/* Caixa */
+.modal-conteudo {
+    background: #4d7f3a;       /* seu verde escuro */
+    color: white;
+    padding: 25px;
+    border-radius: 18px;
+    width: 90%;
+    max-width: 330px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+    animation: aparecer 0.25s ease-out;
+}
+
+/* Animação */
+@keyframes aparecer {
+    from { transform: scale(0.9); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+/* Título */
+.modal-conteudo h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+/* Inputs */
+.modal-conteudo input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+/* Botões */
+.modal-botoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.modal-botoes button {
+    width: 48%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Salvar */
+#btnSalvar {
+    background: #6EE7B7;
+    color: #065F46;
+}
+
+#btnSalvar:hover {
+    background: #34D399;
+}
+
+/* Cancelar */
+#btnFecharModal {
+    background: #FCA5A5;
+    color: #7F1D1D;
+}
+
+#btnFecharModal:hover {
+    background: #F87171;
+}
+
+/* Classe extra para esconder */
+.hidden {
+    display: none;
+}
+
+.botoes-confirmacao {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.btn-cancelar {
+    flex: 1;
+    background: #d1d5db;
+    color: #111827;
     padding: 10px;
-    border-radius: 5px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-excluir2 {
+    flex: 1;
+    background: #ef4444;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-excluir2:hover {
+    background: #dc2626;
 }
