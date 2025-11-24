@@ -1,293 +1,372 @@
-/* =========================================
-   RESET
-========================================= */
-* {
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap');
+
+
+/* Estilos gerais */
+body {
+    font-family: "Londrina Solid", sans-serif;
+    max-width: 100%;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background: linear-gradient(180deg, #8bcf74, #f7e893);
+    background: linear-gradient(to bottom, #2b9c9c, #7cc4cc, #d8a3c9, #c4e9d1);
     min-height: 100vh;
-    padding-bottom: 120px;
 }
 
-/* =========================================
-   TOPO
-========================================= */
-header.topo {
+h1 {
+    font-family: "Londrina Solid", sans-serif;
+    width: 100%;
+    padding: 25px 0;
+    margin: 0;
+
+    text-align: center;
+    font-size: 36px;
+    color: white;
+    font-weight: 800;
+
+    background: #1c9fa0;  /* fundo transparente igual ao da imagem */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    border-radius: 12px;
+
+    box-sizing: border-box;              /* mantém borda dentro da largura */
+
+    backdrop-filter: blur(6px);          /* efeito vidro igual ao da imagem */
+}
+/* Container de hábitos */
+#habitosContainer, #concluidosContainer {
+    margin: 30px 0;
+}
+
+/* Cards de hábitos ATIVOS - VOLTANDO AO ESTILO ORIGINAL */
+.card-habito {
+    font-family: "Londrina Solid", sans-serif;
+    background: #1c9fa0; /* teal forte */
+    color: white;
+    padding: 18px 20px;
+    margin: 20px auto;
+    border-radius: 12px;
+    width: 85%;
+    font-size: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
 }
 
-header h1 {
-    font-size: 24px;
+/* REMOVENDO o hover e transform do card ativo */
+.card-habito:hover {
+    transform: none;
 }
 
-.xp-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.xp-box img {
-    width: 28px;
-    height: 28px;
-}
-
-/* =========================================
-   LISTA DE CARDS
-========================================= */
-#habitosContainer,
-#concluidosContainer {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* =========================================
-   CARD DE HÁBITO (ESTILO NOVO)
-========================================= */
-.card-habito {
-    background: #4d7f3a;
+/* Cards de hábitos CONCLUÍDOS - ESTILO MAIS SIMPLES */
+.card-habito-concluido {
+    font-family: "Londrina Solid", sans-serif;
+    background: #1c9fa0; /* teal forte */
     color: white;
-    padding: 18px 22px;
+    padding: 18px 20px;
+    margin: 20px auto;
     border-radius: 12px;
-    box-shadow: 3px 4px 10px rgba(0,0,0,0.25);
-    font-size: 18px;
+    width: 85%;
+    font-size: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid #ffffff; /* Mantém apenas a borda esquerda verde */
+}
+
+.info-habito {
+    flex: 1;
+}
+
+/* Nome do hábito - VOLTANDO AO ORIGINAL */
+.card-habito .nome-habito,
+.card-habito-concluido .nome-habito {
     font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff; /* Volta ao cinza escuro original */
 }
 
-.card-habito p {
-    font-size: 14px;
-    opacity: 0.8;
+/* Categoria - VOLTANDO AO ORIGINAL */
+.card-habito .categoria-habito,
+.card-habito-concluido .categoria-habito {
+    background: #524f4fc4;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    color: #ffffff; /* Volta ao cinza original */
 }
 
-/* =========================================
-   BOTÕES DO CARD
-========================================= */
+.data-conclusao {
+    font-size: 0.8em;
+    color: #ffffff;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Botões de ação (só aparecem nos hábitos ativos) */
 .acoes {
     display: flex;
     gap: 10px;
-    margin-top: 15px;
 }
 
-.acoes button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.2s;
-    font-weight: bold;
-}
-
-/* Concluir */
-.btn-concluir {
-    background: #6EE7B7;
-    color: #065F46;
-}
-.btn-concluir:hover {
-    background: #34D399;
-}
-
-/* Excluir */
-.btn-excluir {
-    background: #FCA5A5;
-    color: #7F1D1D;
-}
-.btn-excluir:hover {
-    background: #F87171;
-}
-
-/* =========================================
-   BOTÃO ADICIONAR
-========================================= */
-.add-container {
-    padding: 20px;
-    text-align: center;
-}
-
-#btnAdd {
-    background: #43aa41;
+.btn-concluir, .btn-excluir {
     color: white;
-    padding: 14px 20px;
+    background: none;
     border: none;
-    border-radius: 10px;
-    font-size: 16px;
+    font-size: 1.2em;
     cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
 }
 
-/* =========================================
-   MENU INFERIOR NOVO
-========================================= */
-footer.menu {
+.btn-concluir:hover {
+    background-color: #36363663;
+}
+
+.btn-excluir:hover {
+    background-color: #36363663;
+}
+
+.status-concluido {
+    font-size: 1.5em;
+    margin-left: 15px;
+}
+
+/* Botão adicionar */
+#btnAdd {
+    font-family: "Londrina Solid", sans-serif;
+    background: #1c9fa0;
+    border: none;
+    padding: 16px;
+    width: 15%;        /* menor */
+    font-size: 20px;
+    color: white;
+    border-radius: 12px;
+    font-weight: bold;
+    display: block;
+    margin: 200px auto; /* desce ele */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    
+        /* efeito suave */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#btnAdd:hover {
+    transform: translateY(-5px); /* sobe */
+    background: rgb(45, 179, 179);
+}
+
+/* Menu de navegação - CENTRALIZADO */
+#menuNavegacao {
     position: fixed;
-    bottom: 20px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background: #6fbf60;
-    padding: 15px 25px;
+    background: rgba(0, 130, 130, 0.6);
+    backdrop-filter: blur(5px);
+    padding: 12px 25px;
     border-radius: 25px;
     display: flex;
-    gap: 35px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+    gap: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .menu-btn {
-    background: rgba(0,0,0,0.12);
-    padding: 12px;
-    border-radius: 14px;
-    border: none;
-    cursor: pointer;
-    transition: 0.2s;
+    width: 55px;
+    height: 55px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.menu-btn:hover {
+    background-color: #444343ad;
 }
 
 .menu-btn img {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
 }
 
-.menu-btn.active {
-    background: rgba(0,0,0,0.3);
-    transform: scale(1.1);
-}
-
-/* =========================================
-   MODAL BONITO
-========================================= */
-
-/* Fundo escuro */
+/* Modais */
 .modal {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
 }
 
-/* Mostrar modal */
 .modal.ativo {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Caixa */
 .modal-conteudo {
-    background: #4d7f3a;       /* seu verde escuro */
-    color: white;
-    padding: 25px;
-    border-radius: 18px;
+    background: rgb(156, 232, 255);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    max-width: 400px;
     width: 90%;
-    max-width: 330px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
-    animation: aparecer 0.25s ease-out;
+    animation: modalAppear 0.3s ease-out;
 }
 
-/* Animação */
-@keyframes aparecer {
-    from { transform: scale(0.9); opacity: 0; }
-    to   { transform: scale(1); opacity: 1; }
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
-/* Título */
 .modal-conteudo h2 {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 22px;
+    margin-top: 0;
+    color: #333;
 }
 
-/* Inputs */
 .modal-conteudo input {
+    font-family: "Londrina Solid", sans-serif;
     width: 100%;
     padding: 12px;
-    margin-top: 6px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
     font-size: 16px;
 }
 
-/* Botões */
-.modal-botoes {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.modal-botoes button {
-    width: 48%;
-    padding: 12px;
+.modal-conteudo button {
+    font-family: "Londrina Solid", sans-serif;
+    padding: 12px 24px;
+    margin: 5px;
     border: none;
-    border-radius: 10px;
+    border-radius: 6px;
+    cursor: pointer;
     font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
-/* Salvar */
-#btnSalvar {
-    background: #6EE7B7;
-    color: #065F46;
-}
-
-#btnSalvar:hover {
-    background: #34D399;
-}
-
-/* Cancelar */
-#btnFecharModal {
-    background: #FCA5A5;
-    color: #7F1D1D;
-}
-
-#btnFecharModal:hover {
-    background: #F87171;
-}
-
-/* Classe extra para esconder */
-.hidden {
-    display: none;
-}
-
-.botoes-confirmacao {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-}
-
-.btn-cancelar {
-    flex: 1;
-    background: #d1d5db;
-    color: #111827;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn-excluir2 {
-    flex: 1;
-    background: #ef4444;
+#btnSalvar, #btnConfirmarExcluir {
+    background: #5586a3;
     color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
 }
 
-.btn-excluir2:hover {
-    background: #dc2626;
+#btnSalvar:hover, #btnConfirmarExcluir:hover {
+    background: #42687e;
+}
+
+#btnFecharModal, #btnCancelarExcluir {
+    background: #6c757d;
+    color: white;
+}
+
+#btnFecharModal:hover, #btnCancelarExcluir:hover {
+    background: #545b62;
+}
+
+/* Mensagens flutuantes CENTRALIZADAS */
+.mensagem-flutuante {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    padding: 20px 30px;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    z-index: 1001;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    max-width: 400px;
+    width: 80%;
+    text-align: center;
+    line-height: 1.4;
+    font-size: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+}
+
+.mensagem-flutuante.mostrar {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* CORES DIFERENTES para cada tipo de mensagem */
+.mensagem-flutuante.sucesso {
+    background: linear-gradient(135deg, #62e062, #5fdb5f);
+    border: 2px solid #80EF80;
+}
+
+.mensagem-flutuante.erro {
+    background: linear-gradient(135deg, #FF746C, #d4544d);
+    border: 2px solid #e4606d;
+}
+
+/* Estado sem hábitos */
+.sem-habitos {
+    text-align: center;
+    color: #ffffff;
+    font-style: italic;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+/* Sistema de XP */
+.sistema-xp {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    background: rgba(17, 17, 17, 0.322);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 200px;
+    z-index: 1000;
+}
+
+.xp-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.nivel {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.xp-texto {
+    color: #ffffff;
+}
+
+.barra-xp {
+    width: 100%;
+    height: 12px;
+    background: #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progresso-xp {
+    height: 100%;
+    background: linear-gradient(90deg, #e48ebd, #df75af);
+    border-radius: 6px;
+    transition: width 0.5s ease-in-out;
 }
