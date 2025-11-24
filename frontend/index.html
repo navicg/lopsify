@@ -1,77 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle de Hábitos</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Controle de Hábitos</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- TOPO -->
-    <header class="topo">
-        <h1>Controle de Hábitos</h1>
+<h1>Controle de Hábitos</h1>
 
-        <div class="xp-box">
-            <img src="https://cdn-icons-png.flaticon.com/128/8754/8754417.png" alt="XP">
-            <span id="xpTotal">Nível 0</span>
-        </div>
-    </header>
+<div id="habitosContainer"></div>
 
-    <!-- LISTA DE HÁBITOS -->
-    <main id="habitosContainer"></main>
+<button id="btnAdd" type="button">+ Adicionar hábito</button>
 
-    <!-- BOTÃO ADICIONAR -->
-    <div class="add-container">
-        <button id="btnAdd">+ Adicionar novo hábito</button>
-    </div>
+<div id="menuNavegacao">
+  <a href="index.html" class="menu-btn">
+      <img src="https://cdn-icons-png.flaticon.com/128/6997/6997164.png" alt="Home">
+  </a>
 
-<!-- MODAL BONITO -->
-<div id="modalAdicionar" class="modal hidden">
-    <div class="modal-conteudo">
-        <h2>Novo Hábito</h2>
-
-        <label>Nome do hábito:</label>
-        <input type="text" id="inputNomeHabito">
-
-        <label>Categoria (opcional):</label>
-        <input type="text" id="inputCategoriaHabito">
-
-        <div class="modal-botoes">
-            <button id="btnFecharModal">Cancelar</button>
-            <button id="btnSalvar">Salvar</button>
-        </div>
-    </div>
+  <a href="concluidos.html" class="menu-btn">
+      <img src="https://cdn-icons-png.flaticon.com/128/6831/6831818.png" alt="Concluídos">
+  </a>
 </div>
 
-<!-- MODAL DE CONFIRMAÇÃO DE EXCLUSÃO -->
+<!-- Modal Adicionar -->
+<div id="modalAdicionar" class="modal">
+  <div class="modal-conteudo">
+    <h2>Novo Hábito</h2>
+    <input type="text" id="inputNomeHabito" placeholder="Nome">
+    <input type="text" id="inputCategoriaHabito" placeholder="Categoria">
+    <button id="btnSalvar" type="button">Salvar</button>
+    <button id="btnFecharModal" type="button">Cancelar</button>
+  </div>
+</div>
+
+<!-- Modal Excluir -->
 <div id="modalConfirmar" class="modal">
-    <div class="modal-conteudo">
-        <h2 style="margin-bottom: 10px; color: #222;">Excluir hábito?</h2>
-        <p style="margin-bottom: 20px; font-size: 14px;">
-            Tem certeza de que deseja excluir este hábito?
-        </p>
-
-        <div class="botoes-confirmacao">
-            <button id="btnCancelarExcluir" class="btn-cancelar">Cancelar</button>
-            <button id="btnConfirmarExcluir" class="btn-excluir2">Excluir</button>
-        </div>
-    </div>
+  <div class="modal-conteudo">
+    <h2>Excluir Hábito?</h2>
+    <button id="btnConfirmarExcluir" type="button">Excluir</button>
+    <button id="btnCancelarExcluir" type="button">Cancelar</button>
+  </div>
 </div>
 
-
-    <!-- MENU INFERIOR -->
-<footer class="menu">
-    <button id="btnHome" class="menu-btn">
-        <img src="https://cdn-icons-png.flaticon.com/128/6997/6997164.png" alt="Home">
-    </button>
-
-    <button id="btnConcluidos" class="menu-btn">
-        <img src="https://cdn-icons-png.flaticon.com/128/6831/6831818.png" alt="Concluídos">
-    </button>
-</footer>
-
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
