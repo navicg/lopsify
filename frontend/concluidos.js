@@ -56,11 +56,11 @@ class GerenciadorHabitosConcluidos {
 
 // ===== Inicialização =====
 const gerenciadorConcluidos = new GerenciadorHabitosConcluidos();
-const gerenciadorXP = new GerenciadorXP(); // Adicione esta linha
+const gerenciadorXP = new GerenciadorXP();
 
 document.addEventListener("DOMContentLoaded", () => {
     renderHabitosConcluidos();
-    renderSistemaXP(); // Adicione esta linha
+    renderSistemaXP();
 });
 
 // ===== Renderizar hábitos concluídos =====
