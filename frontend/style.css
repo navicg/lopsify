@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap');
 
-
 /* Estilos gerais */
 body {
     font-family: "Londrina Solid", sans-serif;
@@ -11,34 +10,61 @@ body {
     min-height: 100vh;
 }
 
-h1 {
-    font-family: "Londrina Solid", sans-serif;
-    width: 100%;
-    padding: 25px 0;
-    margin: 0;
+/* Header com avatar NO CANTO SUPERIOR ESQUERDO */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background: #1c9fa0;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    position: relative;
+}
 
+.header-container h1 {
+    width: 100%;
+    padding: 25px 60px;
+    margin: 0;
     text-align: center;
     font-size: 36px;
     color: white;
     font-weight: 800;
-
-    background: #1c9fa0;  /* fundo transparente igual ao da imagem */
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-    border-radius: 12px;
-
-    box-sizing: border-box;              /* mantém borda dentro da largura */
-
-    backdrop-filter: blur(6px);          /* efeito vidro igual ao da imagem */
+    box-sizing: border-box;
 }
+
+.avatar-container {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+.avatar-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid white;
+    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.avatar-img:hover {
+    transform: scale(1.1);
+}
+
 /* Container de hábitos */
 #habitosContainer, #concluidosContainer {
     margin: 30px 0;
 }
 
-/* Cards de hábitos ATIVOS - VOLTANDO AO ESTILO ORIGINAL */
+/* Cards de hábitos ATIVOS */
 .card-habito {
     font-family: "Londrina Solid", sans-serif;
-    background: #1c9fa0; /* teal forte */
+    background: #1c9fa0;
     color: white;
     padding: 18px 20px;
     margin: 20px auto;
@@ -51,15 +77,14 @@ h1 {
     align-items: center;
 }
 
-/* REMOVENDO o hover e transform do card ativo */
 .card-habito:hover {
     transform: none;
 }
 
-/* Cards de hábitos CONCLUÍDOS - ESTILO MAIS SIMPLES */
+/* Cards de hábitos CONCLUÍDOS */
 .card-habito-concluido {
     font-family: "Londrina Solid", sans-serif;
-    background: #1c9fa0; /* teal forte */
+    background: #1c9fa0;
     color: white;
     padding: 18px 20px;
     margin: 20px auto;
@@ -70,30 +95,30 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-left: 4px solid #ffffff; /* Mantém apenas a borda esquerda verde */
+    border-left: 4px solid #ffffff;
 }
 
 .info-habito {
     flex: 1;
 }
 
-/* Nome do hábito - VOLTANDO AO ORIGINAL */
+/* Nome do hábito */
 .card-habito .nome-habito,
 .card-habito-concluido .nome-habito {
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
-    color: #ffffff; /* Volta ao cinza escuro original */
+    color: #ffffff;
 }
 
-/* Categoria - VOLTANDO AO ORIGINAL */
+/* Categoria */
 .card-habito .categoria-habito,
 .card-habito-concluido .categoria-habito {
     background: #524f4fc4;
     padding: 2px 8px;
     border-radius: 12px;
     font-size: 0.8em;
-    color: #ffffff; /* Volta ao cinza original */
+    color: #ffffff;
 }
 
 .data-conclusao {
@@ -103,7 +128,7 @@ h1 {
     margin-top: 5px;
 }
 
-/* Botões de ação (só aparecem nos hábitos ativos) */
+/* Botões de ação */
 .acoes {
     display: flex;
     gap: 10px;
@@ -139,26 +164,24 @@ h1 {
     background: #1c9fa0;
     border: none;
     padding: 16px;
-    width: 15%;        /* menor */
+    width: 15%;
     font-size: 20px;
     color: white;
     border-radius: 12px;
     font-weight: bold;
     display: block;
-    margin: 200px auto; /* desce ele */
+    margin: 200px auto;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    
-        /* efeito suave */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 #btnAdd:hover {
-    transform: translateY(-5px); /* sobe */
+    transform: translateY(-5px);
     background: rgb(45, 179, 179);
 }
 
-/* Menu de navegação - CENTRALIZADO */
+/* Menu de navegação */
 #menuNavegacao {
     position: fixed;
     bottom: 30px;
@@ -182,7 +205,6 @@ h1 {
     align-items: center;
     justify-content: center;
 }
-
 
 .menu-btn:hover {
     background-color: #444343ad;
@@ -277,7 +299,7 @@ h1 {
     background: #545b62;
 }
 
-/* Mensagens flutuantes CENTRALIZADAS */
+/* Mensagens flutuantes */
 .mensagem-flutuante {
     position: fixed;
     top: 50%;
@@ -304,7 +326,6 @@ h1 {
     opacity: 1;
 }
 
-/* CORES DIFERENTES para cada tipo de mensagem */
 .mensagem-flutuante.sucesso {
     background: linear-gradient(135deg, #62e062, #5fdb5f);
     border: 2px solid #80EF80;
@@ -332,10 +353,10 @@ h1 {
     top: 15px;
     right: 20px;
     background: rgba(17, 17, 17, 0.322);
-    padding: 15px;
+    padding: 12px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    min-width: 200px;
+    min-width: 180px;
     z-index: 1000;
 }
 
@@ -343,7 +364,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-size: 14px;
 }
 
@@ -354,19 +375,103 @@ h1 {
 
 .xp-texto {
     color: #ffffff;
+    font-size: 12px;
 }
 
 .barra-xp {
     width: 100%;
-    height: 12px;
+    height: 10px;
     background: #e0e0e0;
-    border-radius: 6px;
+    border-radius: 5px;
     overflow: hidden;
 }
 
 .progresso-xp {
     height: 100%;
     background: linear-gradient(90deg, #e48ebd, #df75af);
-    border-radius: 6px;
+    border-radius: 5px;
     transition: width 0.5s ease-in-out;
+}
+
+/* Página de escolha de avatar */
+.avatars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.avatar-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.avatar-option:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.avatar-option.selecionado {
+    border-color: #1c9fa0;
+    background: rgba(28, 159, 160, 0.2);
+}
+
+.avatar-option img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.avatar-option span {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.botoes-avatar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.botoes-avatar button {
+    font-family: "Londrina Solid", sans-serif;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#btnSalvarAvatar {
+    background: #1c9fa0;
+    color: white;
+}
+
+#btnSalvarAvatar:hover {
+    background: #168586;
+    transform: translateY(-2px);
+}
+
+#btnVoltar {
+    background: #6c757d;
+    color: white;
+}
+
+#btnVoltar:hover {
+    background: #545b62;
+    transform: translateY(-2px);
 }

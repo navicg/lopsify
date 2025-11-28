@@ -8,11 +8,17 @@
 </head>
 <body>
 
-<h1>Hábitos Concluídos</h1>
+<!-- Cabeçalho com avatar NO CANTO ESQUERDO -->
+<div class="header-container">
+    <div class="avatar-container">
+        <img src="https://cdn-icons-png.flaticon.com/128/9187/9187604.png" alt="Avatar" id="avatarUsuario" class="avatar-img">
+    </div>
+    <h1>Hábitos Concluídos</h1>
+</div>
 
 <div id="concluidosContainer"></div>
 
-<!-- MENU FIXO (mesmo do index) -->
+<!-- MENU FIXO -->
 <div id="menuNavegacao">
     <a href="index.html" class="menu-btn">
         <img src="https://cdn-icons-png.flaticon.com/128/6997/6997164.png" alt="Home">
@@ -24,5 +30,25 @@
 </div>
 
 <script src="concluidos.js"></script>
+<script>
+// Adicionar funcionalidade do avatar na página de concluídos
+document.addEventListener("DOMContentLoaded", () => {
+    const avatarImg = document.getElementById('avatarUsuario');
+    if (avatarImg) {
+        // Carregar avatar salvo
+        const avatarSalvo = localStorage.getItem('avatarUsuario');
+        if (avatarSalvo) {
+            avatarImg.src = avatarSalvo;
+        }
+        
+        // Adicionar evento de clique
+        avatarImg.addEventListener('click', () => {
+            window.location.href = 'avatar.html';
+        });
+        
+        avatarImg.style.cursor = 'pointer';
+    }
+});
+</script>
 </body>
 </html>
