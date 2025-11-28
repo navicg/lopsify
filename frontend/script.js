@@ -146,13 +146,14 @@ concluirHabito(id) {
 
 // ===== Inicialização =====
 const gerenciador = new GerenciadorHabitos();
-const gerenciadorXP = new GerenciadorXP(); // Adicione esta linha
+const gerenciadorXP = new GerenciadorXP();
 
 document.addEventListener("DOMContentLoaded", () => {
     renderHabitos();
     setupModalAdicionar();
     setupModalExcluir();
-    renderSistemaXP(); // Adicione esta linha
+    renderSistemaXP();
+    atualizarAvatar();
 });
 
 // ===== Renderizar hábitos =====
@@ -352,4 +353,44 @@ function renderSistemaXP() {
     `;
 
     document.body.appendChild(sistemaXP);
+}
+
+// ===== Sistema de Avatar =====
+class GerenciadorAvatar {
+    constructor() {
+        this.avatarSelecionado = this.carregarAvatar();
+    }
+
+    carregarAvatar() {
+        const avatarSalvo = localStorage.getItem('avatarUsuario');
+        return avatarSalvo || 'https://cdn-icons-png.flaticon.com/128/9187/9187604.png';
+    }
+
+    salvarAvatar(avatarUrl) {
+        localStorage.setItem('avatarUsuario', avatarUrl);
+        this.avatarSelecionado = avatarUrl;
+    }
+
+    getAvatar() {
+        return this.avatarSelecionado;
+    }
+}
+
+// Inicializar gerenciador de avatar
+const gerenciadorAvatar = new GerenciadorAvatar();
+
+// Atualizar avatar na página inicial
+function atualizarAvatar() {
+    const avatarImg = document.getElementById('avatarUsuario');
+    if (avatarImg) {
+        avatarImg.src = gerenciadorAvatar.getAvatar();
+        
+        // Adicionar evento de clique para redirecionar
+        avatarImg.addEventListener('click', () => {
+            window.location.href = 'avatar.html';
+        });
+        
+        // Adicionar estilo de cursor pointer
+        avatarImg.style.cursor = 'pointer';
+    }
 }
